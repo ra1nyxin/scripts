@@ -1772,7 +1772,8 @@ local COMPONENT_ACTIONS =
         end,
 
         spellcaster = function(inst, doer, target, actions, right)
-            if inst:HasTag("nomagiccast") then
+            if inst:HasTag("nomagiccast") or
+                (target.replica.inventoryitem and target.replica.inventoryitem:IsHeld()) then -- not allowed to use on items in an inventory, only on targets in the world
                 return
             end
 
@@ -1819,6 +1820,12 @@ local COMPONENT_ACTIONS =
 			if not target.inlimbo and target.replica.follower ~= nil and target.replica.follower:GetLeader() == doer and doer:HasTag("ghostfriend_summoned") and target:HasTag("abigail") then
 				table.insert(actions, ACTIONS.CASTUNSUMMON)
 			end
+        end,
+
+        sweeper = function(inst, doer, target, actions, right)
+            if right and target:HasTag("sweepable") then
+                table.insert(actions, ACTIONS.SWEEP)
+            end
         end,
 
 		tacklesketch = function(inst, doer, target, actions)
@@ -2482,6 +2489,12 @@ local COMPONENT_ACTIONS =
                 if not crushitemcast or crushitemcast and (doer.replica.rider == nil or not doer.replica.rider:IsRiding()) and (doer.replica.inventory == nil or not doer.replica.inventory:IsHeavyLifting()) then
                     table.insert(actions, ACTIONS.CASTSPELL)
                 end
+            end
+        end,
+
+        sweeper = function(inst, doer, target, actions, right)
+            if right and target:HasTag("sweepable") then
+                table.insert(actions, ACTIONS.SWEEP)
             end
         end,
 

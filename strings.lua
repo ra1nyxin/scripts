@@ -1212,6 +1212,10 @@ STRINGS =
         -- Rifts 8
 
         CORRUPTNIGHTMARE = "Corrupt",
+
+        -- Halloween 2026
+
+        SWEEP = "Sweep",
     },
 
 	WOBY_COMMANDS =
@@ -2799,7 +2803,7 @@ STRINGS =
 		TABLE_WINTERS_FEAST = "Winter's Feast Table",
 
 		HALLOWEEN_ORNAMENT_1 = "Ghost Decoration",
-		HALLOWEEN_ORNAMENT_2 = "Bat Decoration",
+		HALLOWEEN_ORNAMENT_2 = "Batilisk Decoration",
 		HALLOWEEN_ORNAMENT_3 = "Spider Decoration",
 		HALLOWEEN_ORNAMENT_4 = "Tentacle Decoration",
 		HALLOWEEN_ORNAMENT_5 = "Dangling Depth Dweller Decoration",
@@ -4789,6 +4793,20 @@ STRINGS =
         MASK_CHARLIE_BOSSHAT = "Queen's Visage",
 
         CHARLIEARENA_TELEPORTER = "Chasm",
+
+        -- Halloween 2026
+		FRANKEN_PIG = "Frankenswine",
+		MUMMY_MERM = "Mermummy",
+		VAMPIRE_BUNNY = "Vamphare",
+        LEAFPILE = "Leaf Pile",
+        PUMPKIN_BOMB = "Pumpkin Bomb",
+        WITCHBROOM = "Witch's Broom",
+        WITCHBROOM_LIVING = "Enchanted Witch's Broom",
+
+		HALLOWEEN_ORNAMENT_7 = "Frankenswine Decoration", -- frankenstein pig
+		HALLOWEEN_ORNAMENT_8 = "Mermummy Decoration", -- mummy merm
+		HALLOWEEN_ORNAMENT_9 = "Vamphare Decoration", -- vampire bunnyman
+		HALLOWEEN_ORNAMENT_10 = "Hound Batilisk Decoration", -- hound batilisk
 	},
 
     NAME_DETAIL_EXTENTION =
@@ -5294,7 +5312,7 @@ STRINGS =
 		CARNIVALDECOR_EGGRIDE2_KIT = "Pint-sized eggcitement!",
 		CARNIVALDECOR_EGGRIDE3_KIT = "Get in the swing of summer fun!",
 		CARNIVALDECOR_EGGRIDE4_KIT = "The new height of Cawnival decor.",
-		CARNIVALDECOR_EGGRIDE5_KIT = "A new spin on Canwival decor.",
+		CARNIVALDECOR_EGGRIDE5_KIT = "A new spin on Cawnival decor.",
         CARNIVALDECOR_EGGRIDE6_KIT = "A little eggstreme decor!",
 		CARNIVALDECOR_LAMP_KIT = "A dreamy light for summer nights.",
 		CARNIVALDECOR_FIGURE_KIT = "What could be inside this mysterious green box?",
@@ -6078,6 +6096,8 @@ STRINGS =
 
         -- Rifts 8
 
+        -- Halloween 2026
+        WITCHBROOM = "Less cackling, more sweeping!",
     },
 
     -- MAXWELL_TEST = {"Say pal, you don't look so good.", "You better find something to eat before night comes!"},
@@ -16200,7 +16220,7 @@ STRINGS.UI =
         MEMBERSHIP_REQUIRED_TITLE = "Membership Required",
         OFFLINE_WARNING = "Online play requires an active\n%s membership\nDo you want to play offline?",
         MEMBERSHIP_REQUIRED_BODY = "Online play requires an active\n%s membership.\n\nIf you do not wish to play Online, please choose an offline mode from the Connection setting.",
-        UPSELL_TEXT = "Online play requires an active%s membership\n Do you want to become a member?",
+        UPSELL_TEXT = "Online play requires an active\n%s membership\n Do you want to become a member?",
         SUBSCRIBE = "Subscribe",
         CANCEL = "Cancel",
     },
@@ -19407,7 +19427,7 @@ STRINGS.SCRAPBOOK = {
         VAULT_CRAWLER_SOCKET = "It looks like an orb could fit right in.",
         VAULT_KEY_ACTIVATOR = "A spark of energy could revitalize it.",
         VAULT_CRAWLER_LEVER = "The urge to pull this lever is... even stronger this time.",
-        VAULT_ORB_REFINED = "A refined piece of a Portation Orb that can be expended to teleport to a fully-socketed Telelocater Focus. A Telelocater Focus must be socketed with three Portation Orbs to become operational.",
+        VAULT_ORB_REFINED = "A refined piece of a Portation Orb that can be expended to teleport to a fully-socketed Telelocator Focus. A Telelocator Focus must be socketed with three Portation Orbs to become operational.",
         VAULT_COMPASS = "A compass left by one of the last builders of this place. It could lead somewhere important.",
         VAULT_KEY_PEDESTAL = "Maybe this one will help you get home.",
         VAULT_REFINER_PEDESTAL = "Break down some orbs in the mean time.",

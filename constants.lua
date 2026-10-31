@@ -855,7 +855,7 @@ SPECIAL_EVENTS =
     YOTS = "year_of_the_snake",
     YOTH = "year_of_the_knight",
 }
-WORLD_SPECIAL_EVENT = SPECIAL_EVENTS.NONE
+WORLD_SPECIAL_EVENT = SPECIAL_EVENTS.HALLOWED_NIGHTS
 WORLD_EXTRA_EVENTS = {}
 
 FESTIVAL_EVENTS =
@@ -909,8 +909,8 @@ SPECIAL_EVENT_MUSIC =
 	--hallowed nights
 	[SPECIAL_EVENTS.HALLOWED_NIGHTS] =
 	{
-		bank = "music_frontend_hallowednights2024.fsb",
-		sound = "dontstarve/music/music_FE_hallowednights2025",
+		bank = "music_frontend_rifts8.fsb",
+		sound = "dontstarve/music/music_FE_rifts8",
 	},
 
     --winter's feast carol
@@ -1231,7 +1231,7 @@ PICKUPSOUNDS = {
 
 ---------------------------------------------------------
 NUM_HALLOWEENCANDY = 14
-NUM_HALLOWEEN_ORNAMENTS = 6
+NUM_HALLOWEEN_ORNAMENTS = 10
 NUM_HALLOWEEN_PUMPKINCARVERS = 3
 NUM_WINTERFOOD = 9
 
@@ -2270,7 +2270,11 @@ TROPHYSCALE_TYPES =
 
 NAUGHTY_VALUE =
 {
-    ["pigman"] = 3,
+    ["pigman"] = function(player, data) -- franken and werepigs don't trigger naughtiness
+        local victim = data and data.victim
+        return (victim and ((victim.components.werebeast and victim.components.werebeast:IsInWereState()) or victim.franken)) and 0
+            or 3
+    end,
     ["babybeefalo"] = 6,
     ["teenbird"] = 2,
     ["smallbird"] = 6,
@@ -2285,7 +2289,7 @@ NAUGHTY_VALUE =
     ["rabbit"] = 1,
     ["mole"] = 1,
     ["tallbird"] = 2,
-    ["bunnyman"] = 3,
+	["bunnyman"] = function(player, data) return data and data.victim and data.victim.vampire and 0 or 3 end,
     ["penguin"] = 2,
     ["glommer"] = 50, -- You've been bad!
     ["catcoon"] = 5,
@@ -3051,6 +3055,13 @@ VIRTUALROOMSETS = {
     LOBBYVAULT = "LOBBYVAULT", -- Intentionally backwards for search string isolation.
     ATRIUM = "ATRIUM",
 }
+VIRTUALROOMSETHASHTONAME = {}
+if rawget(_G, "TheSim") then -- updateprefabs guard and rawget is used for worldgen without hash function defined
+    for _, roomsetname in pairs(VIRTUALROOMSETS) do
+        VIRTUALROOMSETHASHTONAME[hash(roomsetname)] = roomsetname
+    end
+end
+VIRTUALROOMSETNAMETOHASH = table.invert(VIRTUALROOMSETHASHTONAME)
 VIRTUALROOMCONTEXT = {
     NONE = "NONE", -- Default fallback.
     MARKER = "MARKER",
